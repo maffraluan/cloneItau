@@ -1,13 +1,14 @@
 import React from 'react'
 import { Text } from 'react-native'
 import { Header } from './styles'
+import { Icon } from 'react-native-elements'
 
 interface IHomeProps {}
 
 const Home: React.FC<IHomeProps> = () => {
     return (
         <Header>
-            <Text>Home screen</Text>
+            <Icon name="rowing" />
         </Header>
     )
 }
