@@ -1,14 +1,15 @@
 import React from 'react'
+import { Header } from '../../components/Header'
 import { Text } from 'react-native'
-import { Header } from './styles'
+import { } from './styles'
 
 interface IServicesProps {}
 
 const Services: React.FC<IServicesProps> = () => {
     return (
-        <Header>
-            <Text>Services screen</Text>
-        </Header>
+        <>
+            <Header name="Luan" />
+        </>
     )
 }
 

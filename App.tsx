@@ -1,12 +1,17 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
+import { StatusBar } from 'react-native'
 import Routes from './src/Routes'
+
 
 const App: React.FC = () => {
   return (
-    <NavigationContainer>
-      <Routes />
-    </NavigationContainer>
+    <>
+      <StatusBar barStyle="dark-content"/>
+      <NavigationContainer>
+        <Routes />
+      </NavigationContainer>
+    </>
   );
 };
 

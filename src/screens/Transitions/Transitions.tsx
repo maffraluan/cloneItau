@@ -1,14 +1,15 @@
 import React from 'react'
+import { Header } from '../../components/Header'
 import { Text } from 'react-native'
-import { Header } from './styles'
+import { } from './styles'
 
 interface ITransitionsProps {}
 
 const Transitions: React.FC<ITransitionsProps> = () => {
     return (
-        <Header>
-            <Text>Transitions screen</Text>
-        </Header>
+        <>
+            <Header name="Luan" />
+        </>
     )
 }
 

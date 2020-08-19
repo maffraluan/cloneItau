@@ -1,9 +1,15 @@
 import styled from 'styled-components/native' 
+import { StyleSheet } from 'react-native'
 
-const Header = styled.SafeAreaView`
+const Content = styled.View`
     flex: 1;
+    background-color: #EEE9E5;
     align-items: center;
-    justify-content: center;
+    padding-top: 30px;
 `
-
-export { Header }
+const styles = StyleSheet.create({
+    boxContent: {
+        marginTop: 20,
+    }
+})
+export { Content, styles }

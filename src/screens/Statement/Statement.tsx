@@ -1,14 +1,15 @@
 import React from 'react'
+import { Header } from '../../components/Header'
 import { Text } from 'react-native'
-import { Header } from './styles'
+import {} from './styles'
 
 interface IStatementProps {}
 
 const Statement: React.FC<IStatementProps> = () => {
     return (
-        <Header>
-            <Text>Statement screen</Text>
-        </Header>
+        <>
+            <Header name="Luan" />
+        </>
     )
 }
 
