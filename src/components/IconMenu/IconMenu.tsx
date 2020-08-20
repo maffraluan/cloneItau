@@ -8,7 +8,7 @@ interface IconMenuProps {
   name: string,
   type: any,
   size?: number,
-  color?: string,
+  color: string,
   label: string,
 }
 

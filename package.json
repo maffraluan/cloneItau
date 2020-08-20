@@ -1,6 +1,6 @@
 {
-  "name": "cloneItau",
-  "version": "0.0.1",
+  "name": "cloneitau",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "android": "react-native run-android",

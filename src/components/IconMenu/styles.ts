@@ -1,6 +1,9 @@
 import styled from 'styled-components/native';
 
-const Container = styled.View`
+interface LabelProps { color?: string }
+interface ContainerProps { focused: boolean }
+
+const Container = styled.View<ContainerProps>`
   background: ${({ focused }) => focused ? '#fff' : "transparent"};
   padding: ${({ focused }) => focused ? '3px 7px' : "3px 0"};
   height: 100%;
@@ -11,7 +14,7 @@ const Container = styled.View`
   align-items: center;
 `;
 
-const Label = styled.Text`
+const Label = styled.Text<LabelProps>`
   color: ${({ color }) => color};
   margin-top: 2px;
   text-align: center;
