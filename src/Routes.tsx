@@ -1,12 +1,29 @@
-import React, { useState } from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import React from 'react'
+import { RouteProp } from '@react-navigation/native'
+import { createBottomTabNavigator, BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
 import { Home, HelpScreen, Transitions, Services, Statement, } from './screens/'
 import { IconMenu } from './components/IconMenu';
 
-const Tab = createBottomTabNavigator();
 
-interface IRouteProps {
-}
+interface IRouteProps {}
+
+type RootTabParam = {
+  inicio: undefined,
+  extrato: undefined,
+  transações: undefined,
+  serviços: undefined,
+  ajuda: undefined,
+};
+
+type StatementRouteProp = RouteProp<RootTabParam, 'extrato'>;
+type StatementNavigationProp = BottomTabNavigationProp<RootTabParam, 'extrato'>;
+
+type Props = {
+  route: StatementNavigationProp;
+  navigation: StatementNavigationProp;
+};
+
+const RootTab = createBottomTabNavigator<RootTabParam>();
 
 const Routes: React.FunctionComponent<IRouteProps> = () => {
 
@@ -34,8 +51,8 @@ const Routes: React.FunctionComponent<IRouteProps> = () => {
   };
 
   return (
-    <Tab.Navigator
-      initialRouteName="Home"
+    <RootTab.Navigator
+      initialRouteName="inicio"
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color }) => {
           const { name, lib } = icons[route.name]
@@ -59,40 +76,40 @@ const Routes: React.FunctionComponent<IRouteProps> = () => {
           paddingBottom: 25,
         },
       }} >
-      <Tab.Screen
+      <RootTab.Screen
         name="inicio"
         component={Home}
         options={{
           title: ''
         }} />
-      <Tab.Screen
+      <RootTab.Screen
         name="extrato"
         component={Statement}
         options={{
           title: ''
         }} />
 
-      <Tab.Screen
+      <RootTab.Screen
         name="transações"
         component={Transitions}
         options={{
           title: ''
         }} />
 
-      <Tab.Screen
+      <RootTab.Screen
         name="serviços"
         component={Services}
         options={{
           title: ''
         }} />
 
-      <Tab.Screen
+      <RootTab.Screen
         name="ajuda"
         component={HelpScreen}
         options={{
           title: ''
         }} />
-    </Tab.Navigator>
+    </RootTab.Navigator>
   );
 }
 
