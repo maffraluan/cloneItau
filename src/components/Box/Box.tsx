@@ -1,38 +1,53 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React, { useState } from 'react'
+import { View, Text, TouchableWithoutFeedback, GestureResponderEvent } from 'react-native'
 import { Icon } from 'react-native-elements'
 
-import { Container, styles } from './styles'
+import { Container, ViewStatement, ViewShowValue, styles } from './styles'
 
 interface IBoxProps {
     firstTextParam: string,
     secondTextParam: string,
     thirdTextParam: string,
+    onPress?: (event: GestureResponderEvent) => void;
 }
 
-const Box: React.FC<IBoxProps> = ({ firstTextParam, secondTextParam, thirdTextParam }) => {
+const Box: React.FC<IBoxProps> = (props, children) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const isOpenBox = () => {
+        setIsOpen(isOpen === false);
+    };
+
     return (
         <Container style={styles.containerShadow}>
             <View style={{ flex: 1, }}>
                 <View style={styles.mainContent}>
                     <View style={styles.mainHalfOne}>
-    <Text style={styles.halfOneText}>{firstTextParam}</Text>
+                        <Text style={styles.halfOneText}>{props.firstTextParam}</Text>
                         <Text style={{
                             textAlign: 'left',
                             fontSize: 27,
                             fontWeight: '500',
                             color: '#7D7976',
-                        }}>{secondTextParam}</Text>
+                        }}>{props.secondTextParam}</Text>
                     </View>
 
-                    <View style={styles.mainHalfTwo}>
-                        <Text style={styles.halfTwoText}>expandir</Text>
-                        <Icon style={{ marginLeft: 5, }} name="down" type="antdesign" size={12} />
-                    </View>
+                    <TouchableWithoutFeedback
+                        onPress={isOpenBox}>
+                        <View style={styles.mainHalfTwo}>
+                            <Text style={styles.halfTwoText}>{!isOpen ? "expandir" : "ocultar"}</Text>
+                            <Icon style={{ marginLeft: 5, }} name={!isOpen ? "down" : "up"} type="antdesign" size={12} />
+                        </View>
+                    </TouchableWithoutFeedback>
                 </View>
-                <View style={styles.viewStatement}>
-                    <Text style={styles.textStatement}>{thirdTextParam}</Text>
-                </View>
+
+                <ViewShowValue>
+                    {isOpen && props.children}
+                </ViewShowValue>
+
+                <ViewStatement isOpen={isOpen}>
+                    <Text style={styles.textStatement}>{props.thirdTextParam}</Text>
+                </ViewStatement>
             </View>
         </Container>
     )

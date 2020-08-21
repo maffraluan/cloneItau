@@ -1,12 +1,29 @@
 import styled from 'styled-components/native'
 import { StyleSheet } from 'react-native';
 
-const Container = styled.View`
+interface ViewStatement { isOpen: boolean };
+
+interface ViewShowValue { isOpen?: boolean };
+
+export const Container = styled.View`
     width: 90%;
     height: auto;
     min-height: 180px;
     background-color: #fff;
     border-radius: 5px;
+`;
+
+export const ViewStatement = styled.View<ViewStatement>`
+    width: 100%;
+    padding-bottom: ${({ isOpen }) => !isOpen ? "20px" : "10px" };
+    height: ${({ isOpen }) => !isOpen ? "40%" : "30%" };
+    justify-content: center;
+`;
+
+export const ViewShowValue = styled.View<ViewShowValue>`
+        padding-left: 30;
+        height: ${({ isOpen }) => !isOpen ? "15%" : "0px" };
+        justify-content: center;
 `;
 
 const styles = StyleSheet.create({
@@ -22,7 +39,7 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     mainContent: {
-        flex: 1, 
+        flex: 1,
         flexDirection: 'row',
     },
     mainHalfOne: {
@@ -42,16 +59,11 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
         width: '30%',
-    }, 
+    },
     halfTwoText: {
         fontSize: 18,
         fontWeight: '600',
         color: '#7D7976',
-    },
-    viewStatement: {
-        width: '100%',
-        height: '40%',
-        justifyContent: 'center'
     },
     textStatement: {
         paddingLeft: 30,
@@ -61,4 +73,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export { Container, styles }
+export { styles }
