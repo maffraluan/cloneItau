@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { View, Text, TouchableWithoutFeedback, GestureResponderEvent } from 'react-native'
-import { Icon } from 'react-native-elements'
+import { Icon, Divider } from 'react-native-elements'
 
 import { Container, ViewStatement, ViewShowValue, styles } from './styles'
 
@@ -8,15 +8,24 @@ interface IBoxProps {
     firstTextParam: string,
     secondTextParam: string,
     thirdTextParam: string,
-    onPress?: (event: GestureResponderEvent) => void;
+    onPress?: (event: GestureResponderEvent) => void,
+    hasDivider?: boolean,
 }
 
-const Box: React.FC<IBoxProps> = (props, children) => {
+const Box: React.FC<IBoxProps> = (props) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const isOpenBox = () => {
         setIsOpen(isOpen === false);
     };
+
+    const handleDivider = () => {
+        if (props.hasDivider == true) {
+            return <Divider style={{ marginBottom: 5 }} />
+        } else {
+            return false;
+        }
+    }
 
     return (
         <Container style={styles.containerShadow}>
@@ -45,7 +54,9 @@ const Box: React.FC<IBoxProps> = (props, children) => {
                     {isOpen && props.children}
                 </ViewShowValue>
 
+
                 <ViewStatement isOpen={isOpen}>
+                    {isOpen && handleDivider()}
                     <Text style={styles.textStatement}>{props.thirdTextParam}</Text>
                 </ViewStatement>
             </View>

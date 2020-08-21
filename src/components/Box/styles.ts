@@ -15,14 +15,14 @@ export const Container = styled.View`
 
 export const ViewStatement = styled.View<ViewStatement>`
     width: 100%;
-    padding-bottom: ${({ isOpen }) => !isOpen ? "20px" : "10px" };
-    height: ${({ isOpen }) => !isOpen ? "40%" : "30%" };
+    padding-bottom: ${({ isOpen }) => !isOpen ? "20px" : "10px"};
+    height: ${({ isOpen }) => !isOpen ? "40%" : "30%"};
     justify-content: center;
 `;
 
 export const ViewShowValue = styled.View<ViewShowValue>`
         padding-left: 30;
-        height: ${({ isOpen }) => !isOpen ? "15%" : "0px" };
+        height: ${({ isOpen }) => !isOpen ? "15%" : "0px"};
         justify-content: center;
 `;
 
@@ -70,6 +70,14 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         color: '#145482'
+    },
+
+
+    // VALUEBOX STYLES
+    textValueBox: {
+        fontSize: 18, 
+        color: '#008000', 
+        fontWeight: '300'
     }
 })
 

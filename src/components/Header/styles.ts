@@ -42,9 +42,9 @@ const styles = StyleSheet.create({
     },
     viewIcon: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'flex-end',
-        paddingRight: 20,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        paddingHorizontal: 20,
     }
 });
 

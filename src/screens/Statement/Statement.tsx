@@ -8,7 +8,8 @@ interface IStatementProps {}
 const Statement: React.FC<IStatementProps> = () => {
     return (
         <>
-            <Header name="Luan" />
+            <Header 
+                name="Luan" />
         </>
     )
 }

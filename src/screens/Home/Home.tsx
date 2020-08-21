@@ -1,22 +1,15 @@
 import React from 'react'
-import { Header, Box, ListView } from '../../components'
-import { View, Text, ScrollView } from 'react-native'
+import { Header, Box, ListView, ValueBox, } from '../../components'
+import { View, ScrollView } from 'react-native'
 import { Content, styles } from './styles'
 
-interface IHomeProps { }
+interface IHomeProps {
+ }
 
-const ChildrenBox = () => {
-    return (
-        <View>
-            <Text style={{ fontSize: 18, color: '#008000', fontWeight: '300'}}>R$ 700.000,01</Text>
-        </View>
-    )
-}
-
-const Home: React.FC<IHomeProps> = () => {
+const Home: React.FC<IHomeProps> = (props) => {
     return (
         <>
-            <Header name="Luan" />
+            <Header name="Luan" isHome={true}/>
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 horizontal={false}>
@@ -25,7 +18,8 @@ const Home: React.FC<IHomeProps> = () => {
                         firstTextParam="saldo em conta"
                         secondTextParam="corrente"
                         thirdTextParam="ver extrato"
-                        children={<ChildrenBox />}
+                        children={<ValueBox />}
+                        hasDivider={true}
                     />
                     <ListView />
 

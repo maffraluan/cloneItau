@@ -12,7 +12,9 @@ interface IconMenuProps {
   label: string,
 }
 
-const IconMenu: React.FC<IconMenuProps> = ({ focused, color, name, type, size = 28, label }) => {
+const IconMenu: React.FC<IconMenuProps> = (props) => {
+  const { focused, color, name, type, size = 28, label } = props;
+  
     return (
         <Container focused={focused}>
           <Icon
