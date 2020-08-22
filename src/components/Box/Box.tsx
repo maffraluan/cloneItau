@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
 import { View, Text, TouchableWithoutFeedback, GestureResponderEvent } from 'react-native'
 import { Icon, Divider } from 'react-native-elements'
 
 import { Container, ViewStatement, ViewShowValue, styles } from './styles'
+import { BottomType } from 'src/navigation/BottomType'
 
 interface IBoxProps {
     firstTextParam: string,
@@ -10,7 +12,9 @@ interface IBoxProps {
     thirdTextParam: string,
     onPress?: (event: GestureResponderEvent) => void,
     hasDivider?: boolean,
-}
+};
+
+type Props = BottomTabNavigationProp<BottomType, 'extrato'>
 
 const Box: React.FC<IBoxProps> = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +29,7 @@ const Box: React.FC<IBoxProps> = (props) => {
         } else {
             return false;
         }
-    }
+    };
 
     return (
         <Container style={styles.containerShadow}>
@@ -57,7 +61,11 @@ const Box: React.FC<IBoxProps> = (props) => {
 
                 <ViewStatement isOpen={isOpen}>
                     {isOpen && handleDivider()}
-                    <Text style={styles.textStatement}>{props.thirdTextParam}</Text>
+                    <TouchableWithoutFeedback
+                        //onPress={() => navigation.navigate('extrato')}
+                        >
+                        <Text style={styles.textStatement}>{props.thirdTextParam}</Text>
+                    </TouchableWithoutFeedback>
                 </ViewStatement>
             </View>
         </Container>

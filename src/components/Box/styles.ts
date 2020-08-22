@@ -78,7 +78,46 @@ const styles = StyleSheet.create({
         fontSize: 18, 
         color: '#008000', 
         fontWeight: '300'
-    }
-})
+    },
+
+    // TextAndBOX Styles
+    mainViewBox: {
+        width: '100%',
+    },
+    viewTextBox: {
+        marginTop: 30,
+        marginLeft: 20,
+    },
+    textDate: {
+        fontSize: 28,
+        fontWeight: '400',
+        color: '#ec7404',
+    },
+    textTodo: {
+        fontSize: 28,
+        fontWeight: '400',
+    },
+    viewBox: {
+        width: '90%',
+        minHeight: 60,
+        height: 'auto',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingVertical: 15,
+
+        borderRadius: 5,
+        marginTop: 10,
+        paddingHorizontal: 20,
+        backgroundColor: '#ec7404',
+    },
+    textIcon: {
+        fontSize: 18,
+        fontWeight: '700',
+        textAlign: 'left',
+        paddingHorizontal: 20,
+        color: '#fff',
+    },
+ })
 
 export { styles }

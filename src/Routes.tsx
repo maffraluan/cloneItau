@@ -1,33 +1,17 @@
 import React from 'react'
-import { RouteProp } from '@react-navigation/native'
-import { createBottomTabNavigator, BottomTabNavigationProp } from '@react-navigation/bottom-tabs'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Home, HelpScreen, Transitions, Services, Statement, } from './screens/'
 import { IconMenu } from './components/IconMenu';
+import { BottomType } from './navigation/BottomType';
 
 
-interface IRouteProps {}
+interface IRouteProps { }
 
-type RootTabParam = {
-  inicio: undefined,
-  extrato: undefined,
-  transações: undefined,
-  serviços: undefined,
-  ajuda: undefined,
-};
-
-type StatementRouteProp = RouteProp<RootTabParam, 'extrato'>;
-type StatementNavigationProp = BottomTabNavigationProp<RootTabParam, 'extrato'>;
-
-type Props = {
-  route: StatementNavigationProp;
-  navigation: StatementNavigationProp;
-};
-
-const RootTab = createBottomTabNavigator<RootTabParam>();
+const RootTab = createBottomTabNavigator<BottomType>();
 
 const Routes: React.FunctionComponent<IRouteProps> = () => {
 
-  const icons: {[key: string]: object | any } = {
+  const icons: { [key: string]: object | any } = {
     'inicio': {
       name: "home-outline",
       lib: 'ionicon'
@@ -51,14 +35,14 @@ const Routes: React.FunctionComponent<IRouteProps> = () => {
   };
 
   return (
-    <RootTab.Navigator
-      initialRouteName="inicio"
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color }) => {
-          const { name, lib } = icons[route.name]
-          
-          return (
-              <IconMenu 
+      <RootTab.Navigator
+        initialRouteName="inicio"
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color }) => {
+            const { name, lib } = icons[route.name]
+
+            return (
+              <IconMenu
                 focused={focused}
                 name={name}
                 type={lib}
@@ -66,50 +50,50 @@ const Routes: React.FunctionComponent<IRouteProps> = () => {
                 label={route.name}
               />
             )
-        }
-      })}
-      tabBarOptions={{
-        activeTintColor: '#ec7404',
-        inactiveTintColor: '#fff',
-        style: {
-          backgroundColor: '#ec7404',
-          paddingBottom: 25,
-        },
-      }} >
-      <RootTab.Screen
-        name="inicio"
-        component={Home}
-        options={{
-          title: ''
-        }} />
-      <RootTab.Screen
-        name="extrato"
-        component={Statement}
-        options={{
-          title: ''
-        }} />
+          }
+        })}
+        tabBarOptions={{
+          activeTintColor: '#ec7404',
+          inactiveTintColor: '#fff',
+          style: {
+            backgroundColor: '#ec7404',
+            paddingBottom: 25,
+          },
+        }} >
+        <RootTab.Screen
+          name="inicio"
+          component={Home}
+          options={{
+            title: ''
+          }} />
+        <RootTab.Screen
+          name="extrato"
+          component={Statement}
+          options={{
+            title: ''
+          }} />
 
-      <RootTab.Screen
-        name="transações"
-        component={Transitions}
-        options={{
-          title: ''
-        }} />
+        <RootTab.Screen
+          name="transações"
+          component={Transitions}
+          options={{
+            title: ''
+          }} />
 
-      <RootTab.Screen
-        name="serviços"
-        component={Services}
-        options={{
-          title: ''
-        }} />
+        <RootTab.Screen
+          name="serviços"
+          component={Services}
+          options={{
+            title: ''
+          }} />
 
-      <RootTab.Screen
-        name="ajuda"
-        component={HelpScreen}
-        options={{
-          title: ''
-        }} />
-    </RootTab.Navigator>
+        <RootTab.Screen
+          name="ajuda"
+          component={HelpScreen}
+          options={{
+            title: ''
+          }} />
+      </RootTab.Navigator>
   );
 }
 
