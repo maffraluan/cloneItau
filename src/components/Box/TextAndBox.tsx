@@ -11,7 +11,7 @@ interface ITextAndBoxProps {
     type: any,
     size?: number,
     color: string,
-}
+};
 
 const TextAndBox: React.FC<ITextAndBoxProps> = (props) => {
     return (

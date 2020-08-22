@@ -4,9 +4,8 @@ import { ScrollView, View, Text } from 'react-native'
 import { styles } from './styles'
 import { TouchableHighlight } from 'react-native-gesture-handler'
 
-interface IStatementProps { }
 
-const Statement: React.FC<IStatementProps> = () => {
+const Statement: React.FC = () => {
    
     return (
         <>
@@ -23,7 +22,7 @@ const Statement: React.FC<IStatementProps> = () => {
 
                 <View style={styles.alignFace}>
                     <Text style={styles.fontFace}>
-                        :)
+                        {":)"}
                         </Text>
                     <Text style={styles.fontNormal}>você não possui lançamentos futuros</Text>
                     <Text></Text>

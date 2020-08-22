@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigation } from '@react-navigation/native'
+
 import { View, Text, TouchableWithoutFeedback, GestureResponderEvent } from 'react-native'
 import { Icon, Divider } from 'react-native-elements'
 
@@ -17,18 +17,15 @@ interface IBoxProps {
 const Box: React.FC<IBoxProps> = (props) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const navigator = useNavigation();
-
-    const isOpenBox = () => {
-        setIsOpen(isOpen === false);
+    const handleToggleOpenBox = () => {
+        setIsOpen(!isOpen);
     };
 
-    const handleDivider = () => {
-        if (props.hasDivider == true) {
+    const renderDivider = () => {
+        if (props.hasDivider) {
             return <Divider style={{ marginBottom: 5 }} />
-        } else {
-            return false;
         }
+        return null
     };
 
     return (
@@ -36,17 +33,21 @@ const Box: React.FC<IBoxProps> = (props) => {
             <View style={{ flex: 1, }}>
                 <View style={styles.mainContent}>
                     <View style={styles.mainHalfOne}>
-                        <Text style={styles.halfOneText}>{props.firstTextParam}</Text>
+                        <Text style={styles.halfOneText}>
+                            {props.firstTextParam}
+                        </Text>
                         <Text style={{
                             textAlign: 'left',
                             fontSize: 27,
                             fontWeight: '500',
                             color: '#7D7976',
-                        }}>{props.secondTextParam}</Text>
+                        }}>
+                            {props.secondTextParam}
+                        </Text>
                     </View>
 
                     <TouchableWithoutFeedback
-                        onPress={isOpenBox}>
+                        onPress={handleToggleOpenBox}>
                         <View style={styles.mainHalfTwo}>
                             <Text style={styles.halfTwoText}>{!isOpen ? "expandir" : "ocultar"}</Text>
                             <Icon style={{ marginLeft: 5, }} name={!isOpen ? "down" : "up"} type="antdesign" size={12} />
@@ -60,11 +61,12 @@ const Box: React.FC<IBoxProps> = (props) => {
 
 
                 <ViewStatement isOpen={isOpen}>
-                    {isOpen && handleDivider()}
+                    {isOpen && renderDivider()}
                     <TouchableWithoutFeedback
-                        onPress={() => navigator.navigate('extrato')}
-                        >
-                        <Text style={styles.textStatement}>{props.thirdTextParam}</Text>
+                        onPress={props.onPress}>
+                        <Text style={styles.textStatement}>
+                            {props.thirdTextParam}
+                        </Text>
                     </TouchableWithoutFeedback>
                 </ViewStatement>
             </View>

@@ -1,4 +1,5 @@
 import styled from 'styled-components/native' 
+import { StyleSheet } from 'react-native'
 
 const Header = styled.SafeAreaView`
     flex: 1;
@@ -6,4 +7,13 @@ const Header = styled.SafeAreaView`
     justify-content: center;
 `
 
-export { Header }
+const styles = StyleSheet.create({
+    inputHelpScreen: {
+        width: '100%',
+        borderWidth: 3,
+        fontSize: 16,
+        fontWeight: '400',
+    }
+})
+
+export { Header, styles }

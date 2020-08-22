@@ -45,6 +45,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-end',
         paddingHorizontal: 20,
+    },
+
+
+    // TEXTINPUT STYLES
+    textInput: {
+        width: "50%",
+        height: 40,
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: '#EEE9E5',
+        paddingLeft: 3,
     }
 });
 

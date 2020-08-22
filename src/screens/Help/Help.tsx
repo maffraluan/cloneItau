@@ -1,15 +1,16 @@
 import React from 'react'
-import { Text } from 'react-native'
-import { Header } from '../../components/Header'
+import { View } from 'react-native'
+import { Header, Search } from '../../components/'
 
-import {} from './styles'
+import { styles } from './styles'
 
-interface IHelpProps {}
-
-const HelpScreen: React.FC<IHelpProps> = () => {
+const HelpScreen: React.FC = () => {
     return (
         <>
             <Header name="Luan" />
+            <View>
+                <Search style={styles.inputHelpScreen} />
+            </View>
         </>
     )
 }

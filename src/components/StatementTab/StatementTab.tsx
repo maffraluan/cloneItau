@@ -9,19 +9,19 @@ const StatementTab: React.FC<IStatementTabProps> = () => {
         <>
             <View style={styles.viewTabs}>
                 <TouchableOpacity>
-                    <Text>tudo</Text>
+                    <Text style={styles.text}>tudo</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity>
-                    <Text>entrada</Text>
+                    <Text style={styles.text}>entrada</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity>
-                    <Text>saída</Text>
+                    <Text style={styles.text}>saída</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity>
-                    <Text>futuro</Text>
+                    <Text style={styles.text}>futuro</Text>
                 </TouchableOpacity>
             </View>
         </>

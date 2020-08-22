@@ -12,6 +12,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderTopWidth: 1,
         borderTopColor: "#EEE9E5"
+    },
+    text: {
+        fontWeight: '400',
+        fontSize: 16,
     }
 })
 
