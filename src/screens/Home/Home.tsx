@@ -3,10 +3,8 @@ import { Header, Box, ListView, ValueBox, } from '../../components'
 import { View, ScrollView } from 'react-native'
 import { Content, styles } from './styles'
 
-interface IHomeProps {
- }
 
-const Home: React.FC<IHomeProps> = (props) => {
+const Home: React.FC = () => {
     return (
         <>
             <Header name="Luan" isHome={true}/>

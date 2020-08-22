@@ -1,13 +1,12 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Home, HelpScreen, Transitions, Services, Statement, } from './screens/'
-import { IconMenu } from './components/IconMenu';
-import { BottomType } from './navigation/BottomType';
+import { IconMenu } from './components/IconMenu'
 
 
 interface IRouteProps { }
 
-const RootTab = createBottomTabNavigator<BottomType>();
+const RootTab = createBottomTabNavigator();
 
 const Routes: React.FunctionComponent<IRouteProps> = () => {
 
