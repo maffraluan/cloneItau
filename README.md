@@ -14,3 +14,4 @@ Sometimes I use both. (I hope it has no problem)
 
 PS: I made this clone based on IOS system. May not run as such friendly on Andriod system.  
 
+![itaugif](https://user-images.githubusercontent.com/43678582/91682952-94272000-eb29-11ea-846d-b5d424573d59.gif)
