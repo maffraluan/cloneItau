@@ -1,1 +1,1 @@
-export * from './StatementTab'
+export * from './StatementTab';

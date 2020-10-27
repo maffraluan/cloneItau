@@ -1,3 +1,3 @@
-export * from './Box'
-export * from './ValueBox'
-export * from './TextAndBox'
+export * from './Box';
+export * from './ValueBox';
+export * from './TextAndBox';

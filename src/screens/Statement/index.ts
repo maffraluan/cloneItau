@@ -1,1 +1,1 @@
-export * from './Statement'
+export * from './Statement';
